@@ -1,0 +1,18 @@
+async function claimNFT() {
+    try {
+        const wallet = "your-wallet.near"; // Replace with your NEAR wallet
+        const response = await fetch(`https://api.near.org/mint?account=${wallet}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nft_id: "city_of_shadows" }) // Customize this ID
+        });
+
+        if (response.ok) {
+            alert('NFT successfully claimed! Check your NEAR wallet.');
+        } else {
+            alert('Error claiming NFT. Please try again later.');
+        }
+    } catch (error) {
+        alert('Network error. Please check your connection.');
+    }
+}
